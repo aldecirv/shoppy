@@ -3,6 +3,7 @@ import axios from "axios";
 import ProductCard from "./ProductCard.jsx";
 import ProductDetails from "./ProductDetails.jsx";
 import CompareTable from "./CompareTable.jsx";
+import { translateProducts } from "../data/productTranslations.js";
 import "./Main.css";
 
 const FAVORITES_KEY = "shoppy:favorites";
@@ -31,7 +32,7 @@ function Main() {
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
-      .then((response) => setProducts(response.data))
+      .then((response) => setProducts(translateProducts(response.data)))
       .catch(() => setError("Não foi possível carregar os produtos."))
       .finally(() => setLoading(false));
   }, []);

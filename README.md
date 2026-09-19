@@ -27,6 +27,8 @@ shoppy/
     ├── index.css
     ├── App.jsx
     ├── App.css
+    ├── data/
+    │   └── productTranslations.js
     └── components/
         ├── Header.jsx
         ├── Header.css
@@ -47,6 +49,7 @@ shoppy/
 - **ProductCard**: card de um produto (imagem, título, preço, categoria, descrição) com ações de detalhes, favorito e comparação.
 - **ProductDetails**: modal com as informações completas de um produto.
 - **CompareTable**: modal que compara lado a lado até 3 produtos.
+- **productTranslations**: traduz para pt-BR os títulos, as descrições e as categorias dos produtos vindos da API.
 - **Footer**: exibe "Todos os direitos reservados.".
 - **App**: apenas organiza Header, Main e Footer.
 
@@ -57,6 +60,7 @@ shoppy/
 - ❤️ **Favoritos**: marca/desmarca produtos e permite ver apenas os favoritos. Os favoritos são salvos no `localStorage` do navegador.
 - 📊 **Comparação**: seleciona até 3 produtos e abre uma tabela comparando imagem, preço, categoria, avaliação e descrição.
 - 📋 **Detalhes**: abre um modal com imagem ampliada, preço, avaliação e descrição do produto.
+- 🇧🇷 **Tradução**: títulos, descrições e categorias da API são exibidos em português do Brasil.
 
 ## Como rodar
 
