@@ -10,8 +10,7 @@
   margin-bottom: 1.5rem;
 }
 
-.search-field,
-.select-field {
+.search-field {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -20,15 +19,11 @@
   background-color: #fff;
   border: 1px solid #d1d5db;
   border-radius: 8px;
-}
-
-.search-field {
   flex: 1;
   min-width: 200px;
 }
 
-.search-field input,
-.select-field select {
+.search-field input {
   width: 100%;
   height: 100%;
   border: none;

@@ -45,16 +45,18 @@ shoppy/
 ```
 
 - **Header**: exibe apenas o título "Shoppy".
-- **Main**: consome a API, guarda os produtos no estado, aplica busca/filtro/favoritos e renderiza os cards.
+- **Header**: exibe o título "Shoppy" e o menu de categorias.
+- **Main**: aplica busca/filtro/favoritos e renderiza os cards dos produtos recebidos do App.
 - **ProductCard**: card de um produto (imagem, título, preço, categoria, descrição) com ações de detalhes, favorito e comparação.
 - **ProductDetails**: modal com as informações completas de um produto.
 - **CompareTable**: modal que compara lado a lado até 3 produtos.
 - **productTranslations**: traduz para pt-BR os títulos, as descrições e as categorias dos produtos vindos da API.
 - **Footer**: exibe "Todos os direitos reservados.".
-- **App**: apenas organiza Header, Main e Footer.
+- **App**: consome a API, guarda os produtos e a categoria selecionada e organiza Header, Main e Footer.
 
 ## Funcionalidades
 
+- 🧭 **Menu de categorias**: no cabeçalho, permite escolher a categoria exibida na página inicial.
 - 🔎 **Busca**: filtra os produtos pelo título em tempo real.
 - 🌎 **Filtro**: filtra por categoria; a lista de categorias é gerada a partir dos próprios produtos.
 - ❤️ **Favoritos**: marca/desmarca produtos e permite ver apenas os favoritos. Os favoritos são salvos no `localStorage` do navegador.

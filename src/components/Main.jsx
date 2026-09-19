@@ -1,9 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
-import axios from "axios";
+import { useMemo, useState } from "react";
 import ProductCard from "./ProductCard.jsx";
 import ProductDetails from "./ProductDetails.jsx";
 import CompareTable from "./CompareTable.jsx";
-import { translateProducts } from "../data/productTranslations.js";
 import "./Main.css";
 
 const FAVORITES_KEY = "shoppy:favorites";
@@ -17,34 +15,13 @@ function loadFavorites() {
   }
 }
 
-function Main() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+function Main({ products, loading, error, category }) {
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("all");
   const [onlyFavorites, setOnlyFavorites] = useState(false);
   const [favorites, setFavorites] = useState(loadFavorites);
   const [compare, setCompare] = useState([]);
   const [selected, setSelected] = useState(null);
   const [showCompare, setShowCompare] = useState(false);
-
-  useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((response) => setProducts(translateProducts(response.data)))
-      .catch(() => setError("Não foi possível carregar os produtos."))
-      .finally(() => setLoading(false));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
-  }, [favorites]);
-
-  const categories = useMemo(
-    () => ["all", ...new Set(products.map((product) => product.category))],
-    [products]
-  );
 
   const visibleProducts = useMemo(() => {
     const term = search.trim().toLowerCase();
@@ -87,21 +64,6 @@ function Main() {
             onChange={(event) => setSearch(event.target.value)}
             aria-label="Buscar produto"
           />
-        </label>
-
-        <label className="select-field">
-          <span aria-hidden="true">🌎</span>
-          <select
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-            aria-label="Filtrar por categoria"
-          >
-            {categories.map((item) => (
-              <option key={item} value={item}>
-                {item === "all" ? "Todas as categorias" : item}
-              </option>
-            ))}
-          </select>
         </label>
 
         <button
