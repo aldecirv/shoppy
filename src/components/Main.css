@@ -3,37 +3,106 @@
   padding: 1.5rem;
 }
 
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-field,
+.select-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 44px;
+  padding: 0 0.75rem;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.search-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-field input,
+.select-field select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.toggle {
+  height: 44px;
+  padding: 0 1rem;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.toggle.active {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+}
+
+.toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status {
+  padding: 2rem 0;
+  text-align: center;
+  color: #555;
+}
+
+.status.error {
+  color: #dc2626;
+}
+
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
-.card {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 1rem;
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-.card-image {
-  height: 200px;
-  object-fit: contain;
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow: auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 12px;
 }
 
-.card-title {
-  font-size: 1rem;
-}
-
-.card-price {
-  font-weight: bold;
-  color: #16a34a;
-}
-
-.card-description {
-  font-size: 0.875rem;
-  color: #555;
+.close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #6b7280;
+  cursor: pointer;
 }
